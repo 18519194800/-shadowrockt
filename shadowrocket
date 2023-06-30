@@ -1,4 +1,4 @@
-# Shadowrocket: 2023-07-01 03:35:01
+# Shadowrocket: 2023-07-01 04:19:36
 [General]
 bypass-system = true
 skip-proxy = 192.168.0.0/16, 10.0.0.0/8, 172.16.0.0/12, localhost, *.local, captive.apple.com
@@ -12,9 +12,7 @@ dns-direct-system = false
 icmp-auto-reply = true
 always-reject-url-rewrite = false
 private-ip-answer = true
-# direct domain fail to resolve use proxy rule
 dns-direct-fallback-proxy = true
-# The fallback behavior when UDP traffic matches a policy that doesn't support the UDP relay. Possible values: DIRECT, REJECT.
 udp-policy-not-supported-behaviour = REJECT
 update-url = https://raw.githubusercontent.com/18519194800/-shadowrockt/main/shadowrocket
 
