@@ -1,4 +1,4 @@
-# Shadowrocket: 2023-07-01 04:17:38
+# Shadowrocket: 2023-07-01 04:22:40
 [General]
 bypass-system = true
 skip-proxy = 192.168.0.0/16, 10.0.0.0/8, 172.16.0.0/12, localhost, *.local, captive.apple.com
@@ -976,7 +976,6 @@ dl.l.google.com = server:119.29.29.29
 
 [Script]
 #可选, 适用于搜索指定地区的番剧
-哔哩哔哩 = type=http-request,script-path=https://raw.githubusercontent.com/NobyDa/Script/master/Surge/JS/Bili_Auto_Regions.js,pattern=^https:\/\/ap(p|i)\.bili(bili|api)\.(com|net)\/x\/v\d\/search(\/type)?\?.+?%20(%E6%B8%AF|%E5%8F%B0|%E4%B8%AD)&,max-size=131072,timeout=10,script-update-interval=0,enable=false
 Rewrite: BoxJs = type=http-request,pattern=https?:\/\/boxjs\.(com|net),script-path=https://raw.githubusercontent.com/chavyleung/scripts/master/box/chavy.boxjs.js, requires-body=true, timeout=120
 京东获取Cookie = type=http-request,script-path=https://raw.githubusercontent.com/NobyDa/Script/master/JD-DailyBonus/JD_DailyBonus.js,pattern=https:\/\/api\.m\.jd\.com\/client\.action.*functionId=signBean,script-update-interval=86400,enable = true
 京东签到 = type=cron,script-path=https://raw.githubusercontent.com/NobyDa/Script/master/JD-DailyBonus/JD_DailyBonus.js,cronexpr="5 0 * * *",wake-system=true,timeout=20,script-update-interval=86400,enable=true
