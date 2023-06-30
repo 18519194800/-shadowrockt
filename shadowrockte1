@@ -1,4 +1,4 @@
-# Shadowrocket: 2023-07-01 03:35:55
+# Shadowrocket: 2023-07-01 04:17:38
 [General]
 bypass-system = true
 skip-proxy = 192.168.0.0/16, 10.0.0.0/8, 172.16.0.0/12, localhost, *.local, captive.apple.com
@@ -976,44 +976,19 @@ dl.l.google.com = server:119.29.29.29
 
 [Script]
 #可选, 适用于搜索指定地区的番剧
-Bili Search = type=http-request,script-path=https://raw.githubusercontent.com/NobyDa/Script/master/Surge/JS/Bili_Auto_Regions.js,pattern=^https:\/\/ap(p|i)\.bili(bili|api)\.(com|net)\/x\/v\d\/search(\/type)?\?.+?%20(%E6%B8%AF|%E5%8F%B0|%E4%B8%AD)&,max-size=131072,timeout=10,script-update-interval=0,enable=false
+哔哩哔哩 = type=http-request,script-path=https://raw.githubusercontent.com/NobyDa/Script/master/Surge/JS/Bili_Auto_Regions.js,pattern=^https:\/\/ap(p|i)\.bili(bili|api)\.(com|net)\/x\/v\d\/search(\/type)?\?.+?%20(%E6%B8%AF|%E5%8F%B0|%E4%B8%AD)&,max-size=131072,timeout=10,script-update-interval=0,enable=false
 Rewrite: BoxJs = type=http-request,pattern=https?:\/\/boxjs\.(com|net),script-path=https://raw.githubusercontent.com/chavyleung/scripts/master/box/chavy.boxjs.js, requires-body=true, timeout=120
 京东获取Cookie = type=http-request,script-path=https://raw.githubusercontent.com/NobyDa/Script/master/JD-DailyBonus/JD_DailyBonus.js,pattern=https:\/\/api\.m\.jd\.com\/client\.action.*functionId=signBean,script-update-interval=86400,enable = true
 京东签到 = type=cron,script-path=https://raw.githubusercontent.com/NobyDa/Script/master/JD-DailyBonus/JD_DailyBonus.js,cronexpr="5 0 * * *",wake-system=true,timeout=20,script-update-interval=86400,enable=true
 #奈飞评分
-nf_rating.js = type=http-request,pattern=^https?:\/\/ios(-.*)?\.prod\.ftl\.netflix\.com\/iosui\/user/.+path=%5B%22videos%22%2C%\d+%22%2C%22summary%22%5D,script-path=https://raw.githubusercontent.com/yichahucha/surge/master/nf_rating.js
-nf_rating.js = type=http-response,requires-body=1,pattern=^https?:\/\/ios(-.*)?\.prod\.ftl\.netflix\.com\/iosui\/user/.+path=%5B%22videos%22%2C%\d+%22%2C%22summary%22%5D,script-path=https://raw.githubusercontent.com/yichahucha/surge/master/nf_rating.js
 #单集评分
-nf_rating_season.js = type=http-response,pattern=^https?:\/\/ios(-.*)?\.prod\.ftl\.netflix\.com\/iosui\/warmer/.+type=show-ath,requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/yichahucha/surge/master/nf_rating_season.js
 ##########↓↓↓↓↓↓↓↓↓↓去广告区↓↓↓↓↓↓↓↓↓↓##########
-TikTok去水印 = type=http-response,pattern=https?:\/\/.*\.tiktokv\.com\/aweme\/v\d\/(feed|mix\/aweme|aweme\/post|(multi\/)?aweme\/detail|follow\/feed|nearby\/feed|search\/item|general\/search\/single|hot\/search\/video\/list|aweme\/favorite),script-path=https://gitee.com/bp233/copywriting-assistant/raw/master/k8.js, requires-body=true, timeout=10
 YouTube去广告 = type=http-request,pattern=^https?:\/\/.+?\.googlevideo\.com\/.+&(oad|ctier)=(?!A),script-path=https://choler.github.io/Surge/Script/YouTube.js,script-update-interval=0,enable = true
 去微信公众号广告 = type=http-response,pattern=^https?:\/\/mp\.weixin\.qq\.com\/mp\/getappmsgad,requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/NobyDa/Script/master/QuantumultX/File/Wechat.js
 微博去广告 = type=http-response,pattern=^https?://(sdk|wb)app\.uve\.weibo\.com(/interface/sdk/sdkad.php|/wbapplua/wbpullad.lua),requires-body=1,script-path=https://raw.githubusercontent.com/yichahucha/surge/master/wb_launch.js
-微博去广告 = type=http-response,pattern=^https?://m?api\.weibo\.c(n|om)/2/(statuses/(unread|extend|positives/get|(friends|video)(/|_)(mix)?timeline)|stories/(video_stream|home_list)|(groups|fangle)/timeline|profile/statuses|comments/build_comments|photo/recommend_list|service/picfeed|searchall|cardlist|page|!/(photos/pic_recommend_status|live/media_homelist)|video/tiny_stream_video_list|photo/info|remind/unread_count),requires-body=1,max-size=-1,script-path=https://raw.githubusercontent.com/yichahucha/surge/master/wb_ad.js
 BiliBili_开屏去广告 = type=http-response,requires-body=1,script-path=https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/script/bilibili/bilibili_plus.js,pattern=^https?:\/\/app\.bilibili\.com\/x\/v2\/splash\/list
 京东_开屏去广告 = type=http-response,requires-body=1,script-path=https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/script/startup/startup.js,pattern=^https?:\/\/api\.m\.jd\.com\/client\.action\?functionId=start
-什么值得买_值会员权益中心banner广告 = type=http-response,requires-body=1,script-path=https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/script/smzdm/smzdm_remove_ads.js,pattern=^https?:\/\/zhiyou\.m\.smzdm\.com\/user\/vip\/ajax_get_banner
-什么值得买_好价去广告 = type=http-response,requires-body=1,script-path=https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/script/smzdm/smzdm_remove_ads.js,pattern=^https?:\/\/haojia-api\.smzdm\.com\/home\/list
-什么值得买_好价详情页去广告 = type=http-response,requires-body=1,script-path=https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/script/smzdm/smzdm_remove_ads.js,pattern=^https?:\/\/haojia\.m\.smzdm\.com\/detail_modul\/article_releated_modul
-什么值得买_开屏去广告 = type=http-response,requires-body=1,script-path=https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/script/smzdm/smzdm_remove_ads.js,pattern=^https?:\/\/app-api\.smzdm\.com\/util\/loading
-什么值得买_搜索标签去广告 = type=http-response,requires-body=1,script-path=https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/script/smzdm/smzdm_remove_ads.js,pattern=^https?:\/\/s-api\.smzdm\.com\/sou\/filter\/tags\/hot_tags
-什么值得买_搜索结果去广告 = type=http-response,requires-body=1,script-path=https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/script/smzdm/smzdm_remove_ads.js,pattern=^https?:\/\/s-api\.smzdm\.com\/sou\/list
-什么值得买_百科去广告 = type=http-response,requires-body=1,script-path=https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/script/smzdm/smzdm_remove_ads.js,pattern=^https?:\/\/baike-api\.smzdm\.com\/home_v3\/list
-什么值得买_首页去广告 = type=http-response,requires-body=1,script-path=https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/script/smzdm/smzdm_remove_ads.js,pattern=^https?:\/\/homepage-api\.smzdm\.com\/home
 嘀嗒出行_开屏去广告 = type=http-response,requires-body=1,script-path=https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/script/startup/startup.js,pattern=^https?:\/\/capis(-?\w*)?\.didapinche\.com\/ad\/cx\/startup\?
-知乎_优化软件配置 = type=http-response,requires-body=1,script-path=https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/script/zhihu/zhihu_plus.js,pattern=^https?:\/\/appcloud2\.zhihu\.com\/v\d+\/config
-知乎_信息流去广告及黑名单增强 = type=http-response,requires-body=1,script-path=https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/script/zhihu/zhihu_plus.js,pattern=^https?:\/\/api\.zhihu\.com\/(moments|topstory)(\/|\?)?(recommend|action=|feed_type=)(?!\/people)
-知乎_回答内容优化 = type=http-response,requires-body=1,script-path=https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/script/zhihu/zhihu_plus.js,pattern=^https?:\/\/www\.zhihu\.com\/appview\/v2\/answer\/.*(entry=(?!(preload-topstory|preload-search|preload-subscription)))?
-知乎_回答列表去广告及黑名单增强 = type=http-response,requires-body=1,script-path=https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/script/zhihu/zhihu_plus.js,pattern=^https?:\/\/api\.zhihu\.com\/v4\/questions
-知乎_处理用户信息 = type=http-response,requires-body=1,script-path=https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/script/zhihu/zhihu_plus.js,pattern=^https?:\/\/api\.zhihu\.com\/people
-知乎_官方消息去广告 = type=http-response,requires-body=1,script-path=https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/script/zhihu/zhihu_plus.js,pattern=^https?:\/\/api\.zhihu\.com\/notifications\/v3\/(message\?|timeline\/entry\/system_message)
-知乎_屏蔽关键字解锁 = type=http-request,requires-body=1,script-path=https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/script/zhihu/zhihu_plus.js,pattern=^https?:\/\/api\.zhihu\.com\/feed-root\/block
-知乎_热搜去广告 = type=http-response,requires-body=1,script-path=https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/script/zhihu/zhihu_plus.js,pattern=^https?:\/\/api\.zhihu\.com\/search\/top_search\/tabs\/hot\/items
-知乎_热榜去广告 = type=http-response,requires-body=1,script-path=https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/script/zhihu/zhihu_plus.js,pattern=^https?:\/\/api\.zhihu\.com\/topstory\/hot-lists?(\?|\/)
-知乎_获取黑名单 = type=http-response,requires-body=1,script-path=https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/script/zhihu/zhihu_plus.js,pattern=^https?:\/\/api\.zhihu\.com\/settings\/blocked_users
-知乎_评论去广告 = type=http-response,requires-body=1,script-path=https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/script/zhihu/zhihu_plus.js,pattern=^https?:\/\/api\.zhihu\.com\/(comment_v5\/)?(answers|comments?|articles|pins)\/\d+\/(root_|child_)?comments?
-知乎_预置关键词去广告 = type=http-response,requires-body=1,script-path=https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/script/zhihu/zhihu_plus.js,pattern=^https?:\/\/api\.zhihu\.com\/search\/preset_words\?
 美团外卖_开屏去广告 = type=http-response,requires-body=1,script-path=https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/script/startup/startup.js,pattern=^https?:\/\/wmapi\.meituan\.com\/api\/v\d+\/loadInfo?
 酷我音乐vip = type=http-response,pattern=^https?:\/\/vip1\.kuwo\.cn\/(vip\/v2\/user\/vip|vip\/spi/mservice),requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/NobyDa/Script/master/Surge/JS/Kuwo.js
 酷我换肤(已经有的皮肤需要先从本地皮肤删除再换) = requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/nzw9314/QuantumultX/master/Script/themekuwo.js,type=http-response,pattern=^https?:\/\/vip1\.kuwo\.cn\/(vip\/v2\/theme)
