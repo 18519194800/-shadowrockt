@@ -1,4 +1,4 @@
-# Shadowrocket: 2023-07-01 04:33:15
+# Shadowrocket: 2023-07-01 04:54:41
 [General]
 bypass-system = true
 skip-proxy = 192.168.0.0/16, 10.0.0.0/8, 172.16.0.0/12, localhost, *.local, captive.apple.com
@@ -976,13 +976,11 @@ dl.l.google.com = server:119.29.29.29
 
 [Script]
 #可选, 适用于搜索指定地区的番剧
-Rewrite: BoxJs = type=http-request,pattern=https?:\/\/boxjs\.(com|net),script-path=https://raw.githubusercontent.com/chavyleung/scripts/master/box/chavy.boxjs.js, requires-body=true, timeout=120
 京东获取Cookie = type=http-request,script-path=https://raw.githubusercontent.com/NobyDa/Script/master/JD-DailyBonus/JD_DailyBonus.js,pattern=https:\/\/api\.m\.jd\.com\/client\.action.*functionId=signBean,script-update-interval=86400,enable = true
 京东签到 = type=cron,script-path=https://raw.githubusercontent.com/NobyDa/Script/master/JD-DailyBonus/JD_DailyBonus.js,cronexpr="5 0 * * *",wake-system=true,timeout=20,script-update-interval=86400,enable=true
 #奈飞评分
 #单集评分
 ##########↓↓↓↓↓↓↓↓↓↓去广告区↓↓↓↓↓↓↓↓↓↓##########
-YouTube去广告 = type=http-request,pattern=^https?:\/\/.+?\.googlevideo\.com\/.+&(oad|ctier)=(?!A),script-path=https://choler.github.io/Surge/Script/YouTube.js,script-update-interval=0,enable = true
 去微信公众号广告 = type=http-response,pattern=^https?:\/\/mp\.weixin\.qq\.com\/mp\/getappmsgad,requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/NobyDa/Script/master/QuantumultX/File/Wechat.js
 微博去广告 = type=http-response,pattern=^https?://(sdk|wb)app\.uve\.weibo\.com(/interface/sdk/sdkad.php|/wbapplua/wbpullad.lua),requires-body=1,script-path=https://raw.githubusercontent.com/yichahucha/surge/master/wb_launch.js
 BiliBili_开屏去广告 = type=http-response,requires-body=1,script-path=https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/script/bilibili/bilibili_plus.js,pattern=^https?:\/\/app\.bilibili\.com\/x\/v2\/splash\/list
